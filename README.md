@@ -1,5 +1,8 @@
 ### CLRS Implementation
 ---
 Implemented the following:
- * Merge Sort
- * Insertion Sort
+    * Sorting Algorithms
+        * Bubble Sort
+        * Insertion Sort
+        * Merge Sort
+        * Calculating number of inversions in Array/Vectors using Merge Sort
