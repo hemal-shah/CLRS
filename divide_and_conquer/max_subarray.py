@@ -6,12 +6,11 @@ fileObject = open("input.txt", "r+")
 data = fileObject.read()
 fileObject.close()
 
-A = data.split("\n")
-A = map(int, A[:len(A) - 1])
-
+A = map(int, data.split("\n"))
 
 def print_subarray(low, high):
     print A[low : high + 1]
+
 
 def find_max_crossing_subarray(low, mid, high):
 
