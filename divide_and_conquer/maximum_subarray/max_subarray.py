@@ -38,7 +38,7 @@ def find_max_crossing_subarray(low, mid, high):
     return max_left, max_right, (left_sum + right_sum)
 
 def find_max_subarray(low, high):
-    if (low == high):
+    if low == high:
         return low, high, A[low]
 
     else :
