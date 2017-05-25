@@ -1,6 +1,5 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -8,99 +7,86 @@ import java.util.ArrayList;
  */
 public class HeapSort {
 
-    /**
-     * Generally should return i*2 for the heap, but as we have index
-     * starting at 0, we are returning (i*2) + 1 to adjust the bit.
-     *
-     * Applicable for binary heaps only.
-     * @param i
-     * @return
-     */
-    private static int LEFT(int i){
-        return (i*2) + 1;
+
+    static int RIGHT(int index) {
+        return (index * 2) + 2;
     }
 
-    /**
-     * Same as above, but returns (i*2) + 2 to adjust for the discrepancy.
-     * @param i
-     * @return
-     */
-    private static int RIGHT(int i){
-        return (i*2) + 2;
+    static int LEFT(int index) {
+        return (index * 2) + 1;
     }
 
+    private static ArrayList<Integer> MAX_HEAPIFY(ArrayList<Integer> A, int index, int length) {
 
-    /**
-     * Max-heapifies any given input list, from the point of index provided.
-     * MAX-HEAPIFY maintains following property for a heap:
-     *
-     * A[parent] >= A[i] for i being a root/index.
-     *
-     * @param list
-     * @param index
-     * @return
-     */
-    private static ArrayList<Integer> MAX_HEAPIFY(ArrayList<Integer> list,
-                                                  int index,
-                                                  int length){
+        int left_index = LEFT(index);
+        int right_index = RIGHT(index);
+        int largest_index;
 
-        int largest;
-        int left = LEFT(index);
-        int right = RIGHT(index);
-
-        if(left <= length && list.get(left) > list.get(index))
-            largest = left;
-        else
-            largest = index;
-
-        if(right <= length && list.get(right) > list.get(largest))
-            largest = right;
-
-
-        if(largest != index){
-            int temp = list.get(largest);
-            list.set(largest, list.get(index));
-            list.set(index, temp);
-            list = MAX_HEAPIFY(list, largest, length);
+        if (left_index <= length && A.get(left_index) > A.get(index)) {
+            largest_index = left_index;
+        } else {
+            largest_index = index;
+        }
+        if (right_index <= length && A.get(right_index) > A.get(largest_index)) {
+            largest_index = right_index;
         }
 
-        //return the modified list.
-        return list;
+        if(largest_index != index){
+            //Swaping values at index and largest_index
+            A = swapValues(A, largest_index, index);
+
+            //Now calling max heapify on largest index, as it should be a child of original value index.
+            A = MAX_HEAPIFY(A, largest_index, length);
+        }
+
+        return A;
     }
 
-    private static ArrayList<Integer> BUILD_MAX_HEAP(ArrayList<Integer> list){
-        int halfway = list.size()/2;
+    static ArrayList<Integer> swapValues(ArrayList<Integer> A, int index1, int index2){
+        int temp = A.get(index1);
+        A.set(index1, A.get(index2));
+        A.set(index2, temp);
+        return A;
+    }
 
-        for(int i = halfway; i >= 0; i--){
-            list = MAX_HEAPIFY(list, i, list.size() - 1);
+    private static ArrayList<Integer> BUILD_MAX_HEAP(ArrayList<Integer> A){
+        for(int i = A.size()/2; i >= 0; i--){
+            A = MAX_HEAPIFY(A, i, A.size() - 1);
         }
-        return list;
+        return A;
+    }
+
+
+
+    static ArrayList<Integer> readData(String location){
+
+        ArrayList<Integer> A = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(location))) {
+            String data;
+            while ((data = br.readLine()) != null) {
+                A.add(Integer.parseInt(data));
+            }
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+
+        return A;
     }
 
     public static void main(String[] args) {
 
-        ArrayList<Integer> list = new ArrayList<>();
+        String location = "/home/hemal/Programs/Testing/HeapSort/src/input.txt";
+        ArrayList<Integer> A = readData(location);
+        A = BUILD_MAX_HEAP(A);
 
-        //Enter your own location of "\n" separated numbers as a text file.
-        static String location = "/home/hemal/Programs/Testing/HeapSort/src/input.txt";
-        try(BufferedReader br = new BufferedReader(new FileReader(location))){
-            String in;
-            int i = 0;
-            while((in = br.readLine()) != null){
-                list.add(Integer.parseInt(in));
-            }
-        }catch (IOException exception){
-            System.out.println(exception.toString());
+        for(int i = A.size() - 1; i >= 1; i--){
+            // Swap the values at i and 0
+            A = swapValues(A, 0, i);
+
+            //Now call max_heapify again over and over, with 1 length less.
+            A = MAX_HEAPIFY(A, 0, i - 1);
         }
 
-        list = BUILD_MAX_HEAP(list);
-        for (int i = list.size() - 1; i >= 1; i--){
-            int temp = list.get(0);
-            list.set(0, list.get(i));
-            list.set(i, temp);
-            list = MAX_HEAPIFY(list, 0, i - 1);
-        }
-
-        System.out.println(list);
+        System.out.println(A);
     }
 }
