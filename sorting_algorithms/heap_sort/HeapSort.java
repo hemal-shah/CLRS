@@ -1,9 +1,15 @@
+package heap_sort;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Created by hemal on 25/5/17.
+ * Code is developed by
+ * hemal on 25/5/17 at 1:26 AM.
+ *
+ * Contact hemal at email : hemal.shah1996@gmail.com
  */
 public class HeapSort {
 
@@ -33,7 +39,7 @@ public class HeapSort {
 
         if(largest_index != index){
             //Swaping values at index and largest_index
-            A = swapValues(A, largest_index, index);
+            swapValues(A, largest_index, index);
 
             //Now calling max heapify on largest index, as it should be a child of original value index.
             A = MAX_HEAPIFY(A, largest_index, length);
@@ -42,11 +48,10 @@ public class HeapSort {
         return A;
     }
 
-    static ArrayList<Integer> swapValues(ArrayList<Integer> A, int index1, int index2){
+    public static void swapValues(ArrayList<Integer> A, int index1, int index2){
         int temp = A.get(index1);
         A.set(index1, A.get(index2));
         A.set(index2, temp);
-        return A;
     }
 
     private static ArrayList<Integer> BUILD_MAX_HEAP(ArrayList<Integer> A){
@@ -58,7 +63,7 @@ public class HeapSort {
 
 
 
-    static ArrayList<Integer> readData(String location){
+    public static ArrayList<Integer> readData(String location){
 
         ArrayList<Integer> A = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(location))) {
@@ -81,7 +86,7 @@ public class HeapSort {
 
         for(int i = A.size() - 1; i >= 1; i--){
             // Swap the values at i and 0
-            A = swapValues(A, 0, i);
+            swapValues(A, 0, i);
 
             //Now call max_heapify again over and over, with 1 length less.
             A = MAX_HEAPIFY(A, 0, i - 1);

@@ -55,12 +55,12 @@ public class ReverseQuickSort {
             if (A.get(j) >= x){
                 i++;
                 if( i != j){
-                    A = HeapSort.swapValues(A, i, j);
+                    HeapSort.swapValues(A, i, j);
                 }
             }
         }
 
-        A = HeapSort.swapValues(A, i + 1, end);
+        HeapSort.swapValues(A, i + 1, end);
         holder.setA(A);
         holder.setFix_positioned_number_index(i + 1);
         return holder;

@@ -43,7 +43,7 @@ public class HoarePartition {
             Holder holder1 = HOARE_PARTITION(holder, start, end);
             int q = holder1.getQ();
             list = holder1.getList();
-            list = QUICK_SORT(list, start, q - 1);
+            list = QUICK_SORT(list, start, q);
             list = QUICK_SORT(list, q + 1, end);
         }
         return list;
@@ -52,26 +52,34 @@ public class HoarePartition {
     private static Holder HOARE_PARTITION(Holder holder, int start, int end) {
         ArrayList<Integer> list = holder.getList();
         int x = list.get(start);
-        int i = start;
-        int j = end;
+        int i = start - 1;
+        int j = end + 1;
 
         while (true) {
-            while (j >= start && list.get(j) > x) {
-                j--;
-            }
-            while (i <= end && list.get(i) < x) {
-                i++;
-            }
 
-            if (i < j) {
-                list = HeapSort.swapValues(list, i, j);
-            } else {
-                //We still need to swap the values to index j
-                list = HeapSort.swapValues(list, j, list.indexOf(x));
+            do {
+                j--;
+            } while (list.get(j) > x);
+//            while (j >= start && list.get(j) > x) {
+//                j--;
+//            }
+
+            do {
+                i++;
+            } while (list.get(i) < x);
+
+//            while (i <= end && list.get(i) < x) {
+//                i++;
+//            }
+
+            if (i >= j) {
                 holder.setList(list);
                 holder.setQ(j);
                 return holder;
             }
+
+            HeapSort.swapValues(list, i, j);
+
         }
     }
 

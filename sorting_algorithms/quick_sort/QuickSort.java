@@ -73,12 +73,12 @@ public class QuickSort {
                      * For few swaps it doesn't matter,
                      * but when we have huge data set to sort, it matters.
                      */
-                    A = HeapSort.swapValues(A, i, j);
+                    HeapSort.swapValues(A, i, j);
                 }
             }
         }
 
-        A = HeapSort.swapValues(A, i + 1, end);
+        HeapSort.swapValues(A, i + 1, end);
 //        System.out.println(A);
         holder.setA(A);
         holder.setQ(i + 1);

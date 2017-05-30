@@ -1,7 +1,12 @@
+package heap_sort;
+
 import java.util.ArrayList;
 
 /**
- * Created by hemal on 25/5/17.
+ * Code is developed by
+ * hemal on 25/5/17 at 9:23 PM.
+ *
+ * Contact hemal at email : hemal.shah1996@gmail.com
  */
 public class ReverseHeapSort {
 
@@ -22,7 +27,7 @@ public class ReverseHeapSort {
 
         if (smallest_value_index != index) {
             //Swap values at smallest_value_index and index
-            A = HeapSort.swapValues(A, smallest_value_index, index);
+            HeapSort.swapValues(A, smallest_value_index, index);
             A = MIN_HEAPIFY(A, smallest_value_index, length);
         }
         return A;
@@ -43,7 +48,7 @@ public class ReverseHeapSort {
 
         for (int i = A.size() - 1; i >= 1; i--) {
             //Swap values at 0 and i
-            A = HeapSort.swapValues(A, 0, i);
+            HeapSort.swapValues(A, 0, i);
             //calling min_heapify here again
             A = MIN_HEAPIFY(A, 0, i - 1);
         }
