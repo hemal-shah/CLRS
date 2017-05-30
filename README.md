@@ -11,6 +11,7 @@ Implemented the following:
     * Calculating number of inversions in Array/Vectors using Merge Sort (C++)
     * Quick Sort (Java)
     * Reverse Quick Sort (Java)
+    * Quick Sort with Hoare Parition (Java)
 * Divide & Conquer
     * Maximum subarray problem (Python 2)
     * Merge Sort (Inside sorting algorithms directory)
