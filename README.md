@@ -12,6 +12,8 @@ Implemented the following:
     * Quick Sort (Java)
     * Reverse Quick Sort (Java)
     * Quick Sort with Hoare Parition (Java)
+    * Counting Sort (Python 3)
+    * Reverse Counting Sort (Python 3)
 * Divide & Conquer
     * Maximum subarray problem (Python 2)
     * Merge Sort (Inside sorting algorithms directory)
