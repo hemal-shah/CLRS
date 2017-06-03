@@ -8,7 +8,6 @@ Implemented the following:
     * Reverse Insertion Sort (C++)
     * Merge Sort (C++)
     * Heap Sort (Java)
-    * Calculating number of inversions in Array/Vectors using Merge Sort (C++)
     * Quick Sort (Java)
     * Reverse Quick Sort (Java)
     * Quick Sort with Hoare Parition (Java)
@@ -18,7 +17,9 @@ Implemented the following:
     * Maximum subarray problem (Python 2)
     * Merge Sort (Inside sorting algorithms directory)
     * Stresson's Algorithm for Matrix Multiplication (Python 2)
-
+* Miscellaneous Problems solved using base Algorithms
+    * Calculating number of inversions in Array/Vectors using Merge Sort (C++)
+    * Calculating number of integers in a given range in Big-Oh(1) time using Counting Sort (Python 3)
 ---
 Left to Implement:
 * Linear Time maximum subarray problem
