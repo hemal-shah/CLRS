@@ -45,7 +45,7 @@ def counting_sort(A, B, k):
         C[k] = C[k] + C[k - 1]
 
     for l in range(len(A) - 1, -1, -1):
-        B[C[A[l]] - 1] = A[l]
+        B[len(A) - C[A[l]]] = A[l]
         C[A[l]] = C[A[l]] - 1
 
     return B
