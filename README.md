@@ -18,6 +18,8 @@ Implemented the following:
     * Maximum subarray problem (Python 2)
     * Merge Sort (Inside sorting algorithms directory)
     * Stresson's Algorithm for Matrix Multiplication (Python 2)
+* Median and Order Statistics
+    * Finding minimum and maximum number from input array (Python 3)
 * Miscellaneous Problems solved using base Algorithms
     * Calculating number of inversions in Array/Vectors using Merge Sort (C++)
     * Calculating number of integers in a given range in Big-Oh(1) time using Counting Sort (Python 3)
