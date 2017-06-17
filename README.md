@@ -20,6 +20,7 @@ Implemented the following:
     * Stresson's Algorithm for Matrix Multiplication (Python 2)
 * Median and Order Statistics
     * Finding minimum and maximum number from input array (Python 3)
+    * Finding two minimum values from input array (Python 3)
 * Miscellaneous Problems solved using base Algorithms
     * Calculating number of inversions in Array/Vectors using Merge Sort (C++)
     * Calculating number of integers in a given range in Big-Oh(1) time using Counting Sort (Python 3)
@@ -30,5 +31,5 @@ Left to Implement:
 
 ---
 #### P.S.
-1. I have used a combination of different programming languages. (C++, Java, Python 2)
+1. I have used a combination of different programming languages. (C++, Java, Python)
 2. I supply input through text file as I don't want to supply it every time during program execution. (\n delimited any number of values. )
