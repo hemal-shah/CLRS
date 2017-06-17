@@ -13,6 +13,7 @@ Implemented the following:
     * Quick Sort with Hoare Parition (Java)
     * Counting Sort (Python 3)
     * Reverse Counting Sort (Python 3)
+    * Radix Sort for words (Python 3)
 * Divide & Conquer
     * Maximum subarray problem (Python 2)
     * Merge Sort (Inside sorting algorithms directory)
